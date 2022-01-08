@@ -1,8 +1,10 @@
 'use strict'
 
+const asana = require("../app/models/asana")
+
 // creating a base name for the mongodb
 // REPLACE THE STRING WITH YOUR OWN DATABASE NAME
-const mongooseBaseName = 'express-auth-template'
+const mongooseBaseName = 'asanas'
 
 // create the mongodb uri for development and test
 const database = {
