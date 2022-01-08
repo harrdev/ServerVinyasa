@@ -18,7 +18,6 @@ const asanas = [
         imageUrl: 'https://www.dropbox.com/s/4m64ztxkj8a4dab/boatstraightlegs.svg?raw=1',
         difficulty: 'beginner'
 }),
-    
 ]
 
 let done = 0
