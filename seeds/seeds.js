@@ -1,6 +1,6 @@
 const Asana = require('../app/models/asana')
 const mongoose = require('mongoose')
-const mongooseBaseName = 'asana'
+const mongooseBaseName = 'asanas'
 mongoose.connect(`mongodb://127.0.0.1:27017/${mongooseBaseName}-development`)
 
 const asanas = [
