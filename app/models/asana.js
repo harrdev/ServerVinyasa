@@ -26,10 +26,11 @@ const asanaSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+        // ***** MAKE SURE TO CHANGE THIS TO TRUE!!!! **** //
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
-			required: true,
+			required: false,
 		},
 	},
 	{
