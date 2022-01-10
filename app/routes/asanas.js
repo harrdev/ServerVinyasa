@@ -27,14 +27,9 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 router.get('/', (req, res, next)=> {
-    // console.log("Request from server before db call")
     Asana.find()
         .then((asanas) => {
-            // console.log("Server-side fetch req received", asanas)
             console.log("These are the mapped asanas: ", asanas.map((asana => asana.toObject())))
-            // return asanas.map((asana) => {
-            //     asana.toObject()
-            // })
             return asanas
         })
         .then((asanas) => res.status(200).json({
