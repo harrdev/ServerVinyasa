@@ -16,7 +16,7 @@ const errors = require('../../lib/custom_errors')
 const BadParamsError = errors.BadParamsError
 const BadCredentialsError = errors.BadCredentialsError
 
-const asanaDb = require('../models/asana')
+const Asana = require('../models/asana')
 
 // passing this as a second argument to `router.<verb>` will make it
 // so that a token MUST be passed for that route to be available
@@ -28,11 +28,13 @@ const router = express.Router()
 
 router.get('/', (req, res, next)=> {
     // console.log("Request from server before db call")
-    asanaDb.find()
+    Asana.find()
         .then((asanas) => {
-            console.log("Server-side fetch req received", asanas)
-            return asanas.map((asana) =>
-            asana.toObject())
+            //console.log("Server-side fetch req received", asanas)
+            console.log("This is the mapped asanas: ", asanas.map((asana => asana.toObject())))
+            return asanas.map((asana) => {
+                asana.toObject()
+            })
         })
         .then((asanas) => res.status(200).json({
             asanas: asanas }))
