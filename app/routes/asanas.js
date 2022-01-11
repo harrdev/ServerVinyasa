@@ -45,15 +45,12 @@ router.post('/createroutine', requireToken, (req, res, next) => {
     console.log("Server-side POST route hit!", req)
     req.body.info.owner = req.user.id
     userAsana.create({
-        englishName: req.body.info.englishName,
-        sanskritName: req.body.info.sanskritName,
-        difficulty: req.body.info.difficulty,
-        imageUrl: req.body.info.imageUrl,
-        description: req.body.info.description,
+        name: req.body.info.name,
+        routine: req.body.info.routine,
         owner: req.body.info.owner
     })
-    .then(addedPose => {
-        res.json({ message: "Pose added!", addedPose })
+    .then(addedRoutine => {
+        res.json({ message: "Routine saved!", addedRoutine })
     })
     .catch(next)
 })
