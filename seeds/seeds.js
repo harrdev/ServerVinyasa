@@ -434,6 +434,18 @@ const asanas = [
     }),
 ]
 
+// Attempt to sort before seeding
+// function compare( a, b ) {
+//     if ( a.englishName < b.englishName ){
+//       return -1;
+//     }
+//     if ( a.englishName > b.englishName ){
+//       return 1;
+//     }
+//     return 0;
+//   }
+  
+//   asanas.sort( compare );
 
 let done = 0
 for (let i = 0; i < asanas.length; i++) {
