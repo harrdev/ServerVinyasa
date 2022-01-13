@@ -71,7 +71,7 @@ const asanas = [
         englishName: "Crescent Moon Pose",
         sanskritName: "Ashta Chandrasana",
         description: "The crescent moon pose helps stretch the hips and shoulders. It helps muscle endurance and opens the chest up. Crescent moon also helps stimulate mental focus and relieves symptoms of sciatica",
-        imageUrl: "https://cdn.lessons.com/assets/images/courses/yoga/thumb-warrior-yoga-pose.jpg",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8H6_bGtfaHMT4MVG2eIQvqWl4hL2s8RTHCzoYbJCSOnFPcUQ4-AuXQvG6VkZqoghERqU&usqp=CAU",
         difficulty: "beginner"
     }),
     new Asana({
@@ -330,7 +330,7 @@ const asanas = [
         englishName: "Low Lunge",
         sanskritName: "Anjaneyasana",
         description: "This pose stretches the hips, front of the leg, muscles around the knee, intercostal muscles, arms, neck, and chest. This pose strengthens the quadriceps, calves, hamstrings, shoulders, and arms. This asana also engages and strengthens the deep, inner core muscles, which are needed to create stability. The feet and ankles are also stretched and strengthened in the pose, due to the fact that they must support the body from right to left",
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTu_IZpU3TXr1LUxA_AaALxmRoxnSgsByz9g&usqp=CAU",
+        imageUrl: "https://northernnevadachiropractic.com/wp-content/uploads/2020/09/istock-1144334896.jpg",
         difficulty: "beginner"
     }),
     new Asana({
