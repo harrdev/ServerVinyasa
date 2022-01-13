@@ -18,6 +18,7 @@ const BadCredentialsError = errors.BadCredentialsError
 // *********************** Imported models to integrate with database *************** //
 const Asana = require('../models/asana')
 const userAsana = require('../models/userPractice')
+const userPractice = require('../models/userPractice')
 
 // passing this as a second argument to `router.<verb>` will make it
 // so that a token MUST be passed for that route to be available
@@ -26,6 +27,20 @@ const requireToken = passport.authenticate('bearer', { session: false })
 
 // instantiate a router (mini app that only handles routes)
 const router = express.Router()
+// ********************* Get Route to display user's saved practices ******************//
+
+router.get('/profile', requireToken, (req, res, next) => {
+    userPractice.find()
+        .then((routine) => {
+            console.log('userPractice', routine)
+            console.log('this is req.user', req.user)
+            const userRoutines = routine.filter(routine => routine.owner.toString() === req.user.id)
+            console.log('userRoutines', userRoutines)
+            return userRoutines.map((routine) => routine.toObject())
+        })
+        .then((routine) => res.status(200).json({routine: routine}))
+        .catch(next)
+})
 
 // *************************** Get Route to display all poses ************************//
 router.get('/', (req, res, next) => {
@@ -39,6 +54,7 @@ router.get('/', (req, res, next) => {
         }))
         .catch(next)
 })
+
 
 // ****************** Post Route to save to userPractice collection *************//
 router.post('/createroutine', requireToken, (req, res, next) => {
