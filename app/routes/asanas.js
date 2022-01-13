@@ -71,4 +71,17 @@ router.post('/createroutine', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+//********************* Delete Route for saved userPractice collection ***********************/
+router.delete('/profile/:id', (req, res, next) => {
+    userAsana.findOneAndDelete({
+        _id: req.params.id
+    })
+    // this .then with the res is what's being sent to client
+    .then(deletedRoutine => {
+        res.json({ message: "Deleted Routine", deletedRoutine})
+    })
+    .catch(err => {
+        console.log('Failed to delete: ', err)
+    })
+})
 module.exports = router
