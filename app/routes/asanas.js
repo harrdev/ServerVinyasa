@@ -84,4 +84,17 @@ router.delete('/profile/:id', (req, res, next) => {
         console.log('Failed to delete: ', err)
     })
 })
+
+//********************* Edit Route for name of saved practices ************************/
+router.patch('/profile/:id', (req, res, next) => {
+    console.log('This is the req.body from the PUT route: ', req)
+	userAsana.findOneAndUpdate({ "_id": req.body.routine[0]._id,
+        "userPractice._id": req.params.id}, {
+            "$set" : {
+                "userPractice.$" : { name: req.body.editedName }
+            }
+        })
+		.then(() => res.sendStatus(204))
+		.catch(next)
+})
 module.exports = router
