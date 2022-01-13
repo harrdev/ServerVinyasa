@@ -27,8 +27,8 @@ const requireToken = passport.authenticate('bearer', { session: false })
 
 // instantiate a router (mini app that only handles routes)
 const router = express.Router()
-// ********************* Get Route to display user's saved practices ******************//
 
+// ********************* Get Route to display user's saved practices ******************//
 router.get('/profile', requireToken, (req, res, next) => {
     userPractice.find()
         .then((routine) => {
@@ -42,6 +42,19 @@ router.get('/profile', requireToken, (req, res, next) => {
         .catch(next)
 })
 
+// ********************* Get Route to get selected routine ******************//
+router.get('/startroutine/:id', requireToken, (req, res, next) => {
+    userPractice.find()
+        .then((routine) => {
+            console.log('userPractice', routine)
+            console.log('this is req.user', req.user)
+            // const userRoutines = routine.filter(routine => routine.owner.toString() === req.user.id)
+            // console.log('userRoutines', userRoutines)
+            // return userRoutines.map((routine) => routine.toObject())
+        })
+        .then((routine) => res.status(200).json({routine: routine}))
+        .catch(next)
+})
 // *************************** Get Route to display all poses ************************//
 router.get('/', (req, res, next) => {
     Asana.find()
@@ -54,7 +67,6 @@ router.get('/', (req, res, next) => {
         }))
         .catch(next)
 })
-
 
 // ****************** Post Route to save to userPractice collection *************//
 router.post('/createroutine', requireToken, (req, res, next) => {
