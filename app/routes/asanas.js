@@ -44,7 +44,7 @@ router.get('/profile', requireToken, (req, res, next) => {
 
 // ********************* Get Route to get selected routine ******************//
 router.get('/startroutine/:id', requireToken, (req, res, next) => {
-    console.log("server check on routineId: ", req.data)
+    console.log("server check on routineId: ", req.params._id)
     userPractice.findOne({
         id: req.params._id
     })

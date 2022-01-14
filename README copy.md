@@ -29,13 +29,16 @@
 ![This is an image](/src/images/databaseErd.png)
 
 ## Approach 
-The approach to this project was to build the server with Node.js and Express, and to build the client in React.  Database models created and interfaced with Mongoose.  Yoga poses were selected and data was seeded into database.  We chose seeding a database vs using an API as there were not many options for a yoga API.
+The approach to this project was to build the server with Node.js and Express, and to build the client in React.  Database models created and interfaced with Mongoose.  
 ## Unsolved Problems / Version 2
 1. Implement drag out of pane feature for removing a pose from the created routine page
 2. Implement a timer for slideshow to change on an interval based on how long a routine is set for
 3. Implement a music option to play during Start Routine
-4. Implement EDIT function to edit a saved routine
 
 ## Version 3
 1. Implement Tensorflow to detect user's pose form and send notice if form is not correct
+
+
+
+
 
