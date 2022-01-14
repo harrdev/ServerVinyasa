@@ -32,8 +32,8 @@ const router = express.Router()
 router.get('/profile', requireToken, (req, res, next) => {
     userPractice.find()
         .then((routine) => {
-            console.log('userPractice', routine)
-            console.log('this is req.user', req.user)
+            console.log('Server side userPractice', routine)
+            console.log('this is req.user in server', req.user)
             const userRoutines = routine.filter(routine => routine.owner.toString() === req.user.id)
             console.log('userRoutines', userRoutines)
             return userRoutines.map((routine) => routine.toObject())
@@ -44,9 +44,9 @@ router.get('/profile', requireToken, (req, res, next) => {
 
 // ********************* Get Route to get selected routine ******************//
 router.get('/startroutine/:id', requireToken, (req, res, next) => {
-    console.log("server check on routineId: ", req.params._id)
+    console.log("server check on routineId: ", req.params.id)
     userPractice.findOne({
-        id: req.params._id
+        _id: req.params.id
     })
         .then((routine) => {
             console.log('userPractice', routine)
