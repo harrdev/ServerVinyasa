@@ -44,13 +44,15 @@ router.get('/profile', requireToken, (req, res, next) => {
 
 // ********************* Get Route to get selected routine ******************//
 router.get('/startroutine/:id', requireToken, (req, res, next) => {
-    userPractice.find()
+    userPractice.findOne({
+        id: req.params._id
+    })
         .then((routine) => {
             console.log('userPractice', routine)
             console.log('this is req.user', req.user)
             // const userRoutines = routine.filter(routine => routine.owner.toString() === req.user.id)
             // console.log('userRoutines', userRoutines)
-            // return userRoutines.map((routine) => routine.toObject())
+            return routine
         })
         .then((routine) => res.status(200).json({routine: routine}))
         .catch(next)
