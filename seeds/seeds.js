@@ -1,7 +1,8 @@
 const Asana = require('../app/models/asana')
+require('dotenv').config()
 const mongoose = require('mongoose')
 const mongooseBaseName = 'asanas'
-mongoose.connect(`vinyasadb-shard-00-02.bwt6t.mongodb.net:27017/${mongooseBaseName}-development`)
+mongoose.connect(`${process.env.MONGODB_URI}/${mongooseBaseName}-development`)
 
 const asanas = [
     new Asana({
