@@ -1,7 +1,7 @@
 const Asana = require('../app/models/asana')
 const mongoose = require('mongoose')
 const mongooseBaseName = 'asanas'
-mongoose.connect(`mongodb://127.0.0.1:27017/${mongooseBaseName}-development`)
+mongoose.connect(`vinyasadb-shard-00-02.bwt6t.mongodb.net:27017/${mongooseBaseName}-development`)
 
 const asanas = [
     new Asana({
