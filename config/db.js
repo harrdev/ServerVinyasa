@@ -1,4 +1,6 @@
 'use strict'
+// ******* ADDED THIS FOR DEPLOYMENT ******** //
+require('dotenv').config()
 
 const asana = require("../app/models/asana")
 

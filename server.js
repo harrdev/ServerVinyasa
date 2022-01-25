@@ -31,17 +31,25 @@ const clientDevPort = 3000
 mongoose.connect(db, {
 	useNewUrlParser: true,
 })
-
+// ****** Added to test AtlasDB connection to database *******//
+mongoose.connection.once('open', () => {
+	console.log(`Connected to MongoDB at ${mongoose.connection.host}:${mongoose.connection.port}`)
+})
 // instantiate express application object
 const app = express()
 
 // set CORS headers on response from this API using the `cors` NPM package
 // `CLIENT_ORIGIN` is an environment variable that will be set on Heroku
+// ******* LOCAL VERSION CHANGED FOR DEPLOYMENT **********
+// app.use(
+// 	cors({
+// 		origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}`,
+// 	})
+// )
 app.use(
-	cors({
-		origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}`,
-	})
+	cors()
 )
+
 
 // define port for API to run on
 // adding PORT= to your env file will be necessary for deployment
